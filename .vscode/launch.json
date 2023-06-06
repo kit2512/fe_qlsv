@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "admin",
+            "program": "lib/main.dart",
+            "cwd": "apps/admin",
+            "deviceId": "chrome",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--web-hostname", "localhost.qlsv.com","--web-port", "8080"
+            ]
+        }
+    ]
+}

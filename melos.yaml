@@ -1,0 +1,20 @@
+name: fe_qlsv
+
+packages:
+  - "packages/**"
+  - "apps/**"
+
+scripts:
+  admin:
+    name: Admin
+    description: Run admin app
+    run: melos exec --scope="admin" -- "fvm flutter run"
+  
+  student:
+    name: Student
+    description: Run student app
+    run: melos exec --scope="student" -- "fvm flutter run"
+  lecturer:
+    name: Lecturer
+    description: Run lecturer app
+    run: melos exec --scope="lecturer" -- "fvm flutter run"

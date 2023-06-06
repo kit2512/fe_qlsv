@@ -1,0 +1,54 @@
+name: shared
+description: A new Flutter package project.
+version: 0.0.1
+homepage: kit2512.edu.vn
+
+environment:
+  sdk: '>=3.0.3 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  adaptive_layout: ^0.1.7
+  dartz: ^0.10.1
+  dio: ^5.2.0
+  easy_localization: ^3.0.2
+  equatable: ^2.0.5
+  file_picker: ^5.3.2
+  
+  flutter_lints: ^2.0.1
+  flutter_svg: ^2.0.6
+  get: ^4.6.5
+  json_annotation: ^4.8.1
+  logger: ^1.4.0
+  shared_preferences: ^2.1.1
+  url_launcher: ^6.1.11
+  flutter_flavor: ^3.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  json_serializable: ^6.7.0
+  build_runner: ^2.4.4
+  flutter_gen_runner: ^5.3.1
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+  uses-material-design: true
+
+  # To add assets to your package, add an assets section, like this:
+  assets:
+    - assets/icons/
+    - assets/images/
+    - assets/translations/
+
+flutter_gen:
+  output: lib/generated
+
+  integrations:
+    flutter_svg: true
