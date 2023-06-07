@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="63f6ea35-640b-4f21-b234-b240b5b18bcf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/apps/admin/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/admin/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/melos_fe_qlsv.iml" beforeDir="false" afterPath="$PROJECT_DIR$/melos_fe_qlsv.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/lib/domain/domain.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/domain/domain.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/lib/shared.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/shared.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/test/shared_test.dart" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2QsqWwcKj20n1Nfi2fktuS46XRQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "/Users/kit2512/Desktop/Local.nosync/fe_qlsv",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="RunManager" selected="Flutter.Flutter Run -&gt; 'admin'" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="63f6ea35-640b-4f21-b234-b240b5b18bcf" name="Changes" comment="" />
+      <created>1686152671973</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686152671973</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
