@@ -44,16 +44,16 @@ class RestfulModuleDioImpl implements RestfulModule {
 
             if (kDebugMode) logger.d('Token: $token');
 
-            if (token != null) {
-              options.headers
-                  .putIfAbsent('Authorization', () => 'Bearer $token');
-            } else {
-              String? localToken = await authToken;
-              if (localToken != null) {
-                document.cookie = "token=$localToken;domain=.higate.io";
-              }
-              logger.w('Auth token is null');
-            }
+            // if (token != null) {
+            //   options.headers
+            //       .putIfAbsent('Authorization', () => 'Bearer $token');
+            // } else {
+            //   String? localToken = await authToken;
+            //   if (localToken != null) {
+            //     document.cookie = "token=$localToken;domain=.higate.io";
+            //   }
+            //   logger.w('Auth token is null');
+            // }
             return requestInterceptorHandler.next(options);
           },
           onError: (dioError, handler) => handler.next(dioError),

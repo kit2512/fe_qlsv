@@ -7,4 +7,6 @@ abstract class Routes {
   String get students;
   String get lecturers;
   String get classes;
+  String get login;
+  String get addStudent;
 }

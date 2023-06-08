@@ -11,7 +11,7 @@ class UserModel {
   String religion;
   String nationality;
   String gender;
-  String role;
+  String roleName;
 
   UserModel({
     required this.uid,
@@ -26,40 +26,40 @@ class UserModel {
     required this.religion,
     required this.nationality,
     required this.gender,
-    required this.role,
+    required this.roleName,
   });
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
-        uid: json['uid'],
-        firstName: json['first_name'],
-        lastName: json['last_name'],
-        email: json['email'],
-        phoneNumber: json['phone_number'],
-        address: json['address'],
-        dateOfBirth: json['date_of_birth'],
-        citizenId: json['citizen_id'],
-        nation: json['nation'],
-        religion: json['religion'],
-        nationality: json['nationality'],
-        gender: json['gender'],
-        role: json['role'],
-      );
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['uid'] = uid;
-    data['first_name'] = firstName;
-    data['last_name'] = lastName;
-    data['email'] = email;
-    data['phone_number'] = phoneNumber;
-    data['address'] = address;
-    data['date_of_birth'] = dateOfBirth;
-    data['citizen_id'] = citizenId;
-    data['nation'] = nation;
-    data['religion'] = religion;
-    data['nationality'] = nationality;
-    data['gender'] = gender;
-    data['role'] = role;
-    return data;
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+      uid: json["uid"],
+      firstName: json["firstName"],
+      lastName: json["lastName"],
+      email: json["email"],
+      phoneNumber: json["phoneNumber"],
+      address: json["address"],
+      dateOfBirth: json["dateOfBirth"],
+      citizenId: json["citizenId"],
+      nation: json["nation"],
+      religion: json["religion"],
+      nationality: json["nationality"],
+      gender: json["gender"],
+      roleName: json["roleName"],
+    );
   }
+
+  Map<String, dynamic> toJson() => {
+        "uid": uid,
+        "firstName": firstName,
+        "lastName": lastName,
+        "email": email,
+        "phoneNumber": phoneNumber,
+        "address": address,
+        "dateOfBirth": dateOfBirth,
+        "citizenId": citizenId,
+        "nation": nation,
+        "religion": religion,
+        "nationality": nationality,
+        "gender": gender,
+        "roleName": roleName,
+      };
 }

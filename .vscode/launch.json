@@ -11,6 +11,40 @@
             "args": [
                 "--web-hostname", "localhost.qlsv.com","--web-port", "8080"
             ]
+        },
+        {
+            "name": "student",
+            "program": "lib/main.dart",
+            "cwd": "apps/student",
+            "deviceId": "chrome",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--web-hostname", "localhost.qlsv.com","--web-port", "8081"
+            ]
+        },
+        {
+            "name": "lecturer",
+            "program": "lib/main.dart",
+            "cwd": "apps/lecturer",
+            "deviceId": "chrome",
+            "request": "launch",
+            "type": "dart",1
+            "args": [
+                "--web-hostname", "localhost.qlsv.com","--web-port", "8082"
+            ]
+        },
+        {
+            "name": "console",
+            "program": "lib/main.dart",
+            "cwd": "apps/console",
+            "deviceId": "chrome",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--web-hostname", "localhost.qlsv.com","--web-port", "8083"
+            ]
         }
+
     ]
 }

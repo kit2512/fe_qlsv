@@ -5,17 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63f6ea35-640b-4f21-b234-b240b5b18bcf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/apps/admin/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/melos_fe_qlsv.iml" beforeDir="false" afterPath="$PROJECT_DIR$/melos_fe_qlsv.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/domain/domain.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/domain/domain.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/shared/lib/components/common_main_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/shared/lib/components/custom_scroll_behavior.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/shared/lib/components/loading/loading.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/shared/lib/constants/media_query_breakpoints.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_admin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_student.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_run_student.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/melos_flutter_test_shared.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/admin/lib/routes/go_routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/routes/go_routes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/melos.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/melos.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/lib/components/common_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/routes/web_routes.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/lib/components/components.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/components/components.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/lib/constants/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/constants/constants.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/lib/flavors/base_flavor.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/flavors/base_flavor.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/lib/modules/restful_module/restful_module_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/modules/restful_module/restful_module_impl.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/lib/services/user_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/services/user_service.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/shared/lib/shared.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/shared.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/test/shared_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/shared/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,6 +47,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2QsqWwcKj20n1Nfi2fktuS46XRQ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -35,11 +61,29 @@
     "RunOnceActivity.cidr.known.project.marker": "true",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
+    "io.flutter.reload.alreadyRun": "true",
     "last_opened_file_path": "/Users/kit2512/Desktop/Local.nosync/fe_qlsv",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
-  <component name="RunManager" selected="Flutter.Flutter Run -&gt; 'admin'" />
+  <component name="RunManager" selected="Flutter.Flutter Run -&gt; 'admin'">
+    <list>
+      <item itemvalue="Flutter.Flutter Run -&gt; 'console'" />
+      <item itemvalue="Flutter.Flutter Run -&gt; 'admin'" />
+      <item itemvalue="Flutter.Flutter Run -&gt; 'clear'" />
+      <item itemvalue="Flutter.Flutter Run -&gt; 'student'" />
+      <item itemvalue="Shell Script.Melos Run -&gt; 'console'" />
+      <item itemvalue="Shell Script.Melos -&gt; Bootstrap Workspace" />
+      <item itemvalue="Shell Script.Melos -&gt; Clean Workspace" />
+      <item itemvalue="Shell Script.Melos Run -&gt; 'admin'" />
+      <item itemvalue="Shell Script.Melos Run -&gt; 'lecturer'" />
+      <item itemvalue="Shell Script.Melos Run -&gt; 'student'" />
+    </list>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

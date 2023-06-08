@@ -22,6 +22,7 @@ class UserService extends GetxService {
   bool get isLoggedIn => user.value != null;
 
   Future<bool> checkTokenExpire() async {
+    return true;
     try {
       final RestfulModule restfulModule = Get.find();
 

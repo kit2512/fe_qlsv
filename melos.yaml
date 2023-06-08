@@ -18,3 +18,7 @@ scripts:
     name: Lecturer
     description: Run lecturer app
     run: melos exec --scope="lecturer" -- "fvm flutter run"
+  console:
+    name: Console
+    description: Run console app
+    run: melos exec --scope="console" -- "fvm flutter run"

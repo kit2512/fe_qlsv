@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/apps/admin/melos_admin.iml" filepath="$PROJECT_DIR$/apps/admin/melos_admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/clear/melos_clear.iml" filepath="$PROJECT_DIR$/apps/clear/melos_clear.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/console/melos_console.iml" filepath="$PROJECT_DIR$/apps/console/melos_console.iml" />
       <module fileurl="file://$PROJECT_DIR$/packages/shared/melos_shared.iml" filepath="$PROJECT_DIR$/packages/shared/melos_shared.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/student/melos_student.iml" filepath="$PROJECT_DIR$/apps/student/melos_student.iml" />
       <module fileurl="file://$PROJECT_DIR$/melos_fe_qlsv.iml" filepath="$PROJECT_DIR$/melos_fe_qlsv.iml" />

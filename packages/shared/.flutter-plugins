@@ -1,6 +1,9 @@
 # This is a generated file; do not edit or check into version control.
 file_picker=/Users/kit2512/.pub-cache/hosted/pub.dev/file_picker-5.3.2/
 flutter_plugin_android_lifecycle=/Users/kit2512/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.15/
+path_provider=/Users/kit2512/.pub-cache/hosted/pub.dev/path_provider-2.0.15/
+path_provider_android=/Users/kit2512/.pub-cache/hosted/pub.dev/path_provider_android-2.0.27/
+path_provider_foundation=/Users/kit2512/.pub-cache/hosted/pub.dev/path_provider_foundation-2.2.3/
 path_provider_linux=/Users/kit2512/.pub-cache/hosted/pub.dev/path_provider_linux-2.1.11/
 path_provider_windows=/Users/kit2512/.pub-cache/hosted/pub.dev/path_provider_windows-2.1.7/
 shared_preferences=/Users/kit2512/.pub-cache/hosted/pub.dev/shared_preferences-2.1.1/
