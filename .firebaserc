@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "fe-qlsv"
+  },
+  "targets": {
+    "fe-qlsv": {
+      "hosting": {
+        "student": [
+          "student-qlsv-app"
+        ],
+        "admin": [
+          "fe-qlsv"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
