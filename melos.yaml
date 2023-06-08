@@ -8,17 +8,32 @@ scripts:
   admin:
     name: Admin
     description: Run admin app
-    run: melos exec --scope="admin" -- "fvm flutter run"
+    run: melos exec --scope="admin" -- "flutter run"
   
   student:
     name: Student
     description: Run student app
-    run: melos exec --scope="student" -- "fvm flutter run"
+    run: melos exec --scope="student" -- "flutter run"
   lecturer:
     name: Lecturer
     description: Run lecturer app
-    run: melos exec --scope="lecturer" -- "fvm flutter run"
+    run: melos exec --scope="lecturer" -- "flutter run"
   console:
     name: Console
     description: Run console app
-    run: melos exec --scope="console" -- "fvm flutter run"
+    run: melos exec --scope="console" -- "flutter run"
+
+  build_admin:
+    name: Build Admin
+    description: Build admin app
+    run: melos exec --scope="admin" -- "flutter build web --release"
+
+  build_student:
+    name: Build Student
+    description: Build Student app
+    run: melos exec --scope="student" -- "flutter build web --release"
+  
+  build_lecturer:
+    name: Build Lecturer
+    description: Build Lecturer app
+    run: melos exec --scope="lecturer" -- "flutter build web --release"

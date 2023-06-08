@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: sudo snap install flutter --classic && flutter channel stable && flutter config --enable-web && export PATH="$HOME/.pub-cache/bin:$PATH" && dart pub global activate melos && melos bootstrap
-      - run: cd apps/admin && flutter build web --release
+      - run: melos run build_admin
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
@@ -20,3 +20,11 @@ jobs:
           channelId: live
           projectId: fe-qlsv
           target: admin
+      - run: melos run build_student
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_FE_QLSV }}'
+          channelId: live
+          projectId: fe-qlsv
+          target: student
