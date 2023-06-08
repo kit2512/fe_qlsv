@@ -1,5 +1,22 @@
 {
   "projects": {
-    "default": "qlsv-960a4"
-  }
+    "admin": "qlsv-960a4"
+  },
+  "targets": {
+    "student": {
+      "hosting": {
+        "student": [
+          "fe-student"
+        ]
+      }
+    },
+    "qlsv-960a4": {
+      "hosting": {
+        "admin": [
+          "qlsv-960a4"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

@@ -11,10 +11,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: sudo snap install flutter --classic && flutter channel stable && flutter config --enable-web && cd apps/admin && flutter pub get && flutter build web --release
+      - run: sudo snap install flutter --classic && flutter channel stable && flutter config --enable-web && dart pub global activate melos && melos bs
+
+      - run: cd apps/admin && flutter build web --release
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_QLSV_960A4 }}'
           channelId: live
           projectId: qlsv-960a4
+          target: admin
+      - run: cd apps/admin && flutter build web --release
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_QLSV_960A4 }}'
+          channelId: live
+          projectId: qlsv-960a4
+          target: student
+          
+      
