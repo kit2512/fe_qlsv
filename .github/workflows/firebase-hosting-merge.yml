@@ -12,8 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
     
-      - run: sudo snap install flutter --classic && flutter channel stable && flutter config --enable-web && dart pub global activate melos && melos bs
-      - run: export PATH="$PATH":"$HOME/.pub-cache/bin"
+      - run: sudo snap install flutter --classic && flutter channel stable && flutter config --enable-web
+      - run: export PATH="$PATH":"$HOME/.pub-cache/bin" && dart pub global activate melos && melos bs
       - run: cd apps/admin && flutter build web --release
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
