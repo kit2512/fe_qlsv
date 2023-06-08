@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: cd apps/admin && flutter build web --release
+      - run: sudo snap install flutter --classic && flutter channel stable && flutter config --enable-web && cd apps/admin && flutter pub get && flutter build web --release
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
