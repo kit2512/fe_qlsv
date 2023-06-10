@@ -4,3 +4,4 @@ export './lecturer_repository.dart';
 export './student_repository.dart';
 export './subject_repository.dart';
 export './user_repository.dart';
+export './major_repository.dart';
