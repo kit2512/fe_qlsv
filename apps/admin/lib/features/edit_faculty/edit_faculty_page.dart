@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shared/shared.dart';
 import 'edit_faculty_controller.dart';
 import 'package:get/get.dart';
@@ -30,11 +31,16 @@ class EditFacultyPage extends GetView<EditFacultyController> {
                       labelText: 'Faculty Name',
                     ),
                     validator: (value) {
-                      if (value == null || value.isEmpty) {
+                      if (value == null || value.trim().isEmpty) {
                         return 'Please enter faculty name';
                       }
                       return null;
                     },
+                    inputFormatters: [
+                      LengthLimitingTextInputFormatter(50),
+                      FilteringTextInputFormatter(RegExp(r"[A-Za-z\s]"),
+                          allow: true),
+                    ],
                   ),
                   const SizedBox(
                     height: 24.0,

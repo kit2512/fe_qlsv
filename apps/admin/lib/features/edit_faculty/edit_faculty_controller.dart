@@ -13,11 +13,9 @@ class EditFacultyController extends GetxController {
   final Rx<FacultyModel> faculty = FacultyModel().obs;
   final RxList<MajorModel> listMajor = <MajorModel>[].obs;
 
-  int? facultyId;
-
   @override
   void onInit() {
-    facultyId = int.parse(GoRoutes.pathParameters["id"]);
+
     facultyNameController.addListener(() {
       faculty.value.facultyName = facultyNameController.text;
     });
@@ -78,6 +76,9 @@ class EditFacultyController extends GetxController {
 
   Future<void> initData() async {
     _loadingController.startLoading();
+    facultyNameController.clear();
+    listMajor.clear();
+    final facultyId = int.parse(GoRoutes.pathParameters["id"]);
     await getFaculty(facultyId!);
     await getFacultyMajors(facultyId!);
     facultyNameController.text = faculty.value.facultyName ?? "";
@@ -163,7 +164,7 @@ class EditFacultyController extends GetxController {
               if (addMajorFormKey.currentState!.validate()) {
                 Get.back();
                 _loadingController.startLoading();
-                final res = await _majorRepository.createMajor(name: majorNameController.text, facultyId: facultyId!);
+                final res = await _majorRepository.createMajor(name: majorNameController.text, facultyId: faculty.value.id!);
                 res.fold((l) {
                   _loadingController.endLoading();
                   Get.showSnackbar(GetSnackBar(
