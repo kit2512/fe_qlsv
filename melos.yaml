@@ -26,7 +26,7 @@ scripts:
   build_admin:
     name: Build Admin
     description: Build admin app
-    run: melos exec --scope="admin" -- "flutter build web --release"
+    run: melos exec --scope="admin" -- "flutter build web --release -t lib/main_prod.dart"
     env:
       APP_FLAVOR: production
 

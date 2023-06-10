@@ -6,15 +6,10 @@ import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 import 'package:shared/shared.dart';
 
-void main() async {
+void runMain() async {
   usePathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
-
-  const appFlavor = String.fromEnvironment('APP_FLAVOR', defaultValue: "local");
-  AppFlavor.init(appFlavor);
-
   await initDependencies();
-
   runApp(const App());
 }
 
