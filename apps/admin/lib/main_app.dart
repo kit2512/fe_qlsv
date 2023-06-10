@@ -15,7 +15,7 @@ void runMain() async {
 
 Future<void> initDependencies() async {
   final logging = AppFlavor.current.admin.variables["logging"] ?? false;
-  Get.put<Logger>(Logger(level: logging ? Level.verbose : Level.info),
+  Get.put<Logger>(Logger(level: logging ? Level.verbose : Level.nothing),
       permanent: true);
   Get.put<LocalStorageModule>(
     SharedPrefLocalStorageImpl(),

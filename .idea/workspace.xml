@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63f6ea35-640b-4f21-b234-b240b5b18bcf" name="Changes" comment="Update">
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/features/login/presentation/controllers/login_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/features/login/presentation/controllers/login_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/flavors/production_flavor.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/flavors/production_flavor.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/admin/lib/main_app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/main_app.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686425396090</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update">
+      <created>1686425815955</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686425815955</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
