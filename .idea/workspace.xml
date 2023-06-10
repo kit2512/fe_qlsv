@@ -5,56 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63f6ea35-640b-4f21-b234-b240b5b18bcf" name="Changes" comment="Update">
-      <change afterPath="$PROJECT_DIR$/apps/admin/lib/features/create_faculty/bindings.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/admin/lib/features/create_faculty/create_faculty.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/admin/lib/features/create_faculty/create_faculty_controller.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/admin/lib/features/create_faculty/create_faculty_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/admin/lib/features/edit_faculty/bindings.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/admin/lib/features/edit_faculty/edit_faculty.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/admin/lib/features/edit_faculty/edit_faculty_controller.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/admin/lib/features/edit_faculty/edit_faculty_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/admin/lib/features/facuties/bindings.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/admin/lib/features/facuties/faculties.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/admin/lib/features/facuties/faculties_controller.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/admin/lib/features/facuties/faculties_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/shared/lib/components/common_content_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/shared/lib/domain/repositories/major_repository.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/shared/lib/models/faculty_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/shared/lib/models/major_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/firebase-hosting-merge.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/firebase-hosting-merge.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/firebase-hosting-pull-request.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/firebase-hosting-pull-request.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/features/add_student/bindings/add_student_binding.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/features/add_student/bindings/add_student_binding.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/features/add_student/presentation/add_student_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/features/add_student/presentation/add_student_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/features/add_student/presentation/controllers/add_student_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/features/add_student/presentation/controllers/add_student_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/features/login/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/features/login/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/features/login/presentation/controllers/login_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/features/login/presentation/controllers/login_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/features/students/binding.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/features/students/binding.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/features/students/presentation/controllers/students_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/features/students/presentation/controllers/students_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/features/students/students_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/features/students/students_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/middleware/auth_middleware.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/middleware/auth_middleware.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/routes/go_routes.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/routes/go_routes.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/components/app_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/components/app_theme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/components/common_main_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/components/common_main_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/components/components.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/components/components.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/components/loading/loading.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/components/loading/loading.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/constants/endpoints.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/constants/endpoints.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/domain/repositories/faculty_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/domain/repositories/faculty_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/domain/repositories/repositories.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/domain/repositories/repositories.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/domain/repositories/student_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/domain/repositories/student_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/domain/repositories/user_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/domain/repositories/user_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/flavors/base_flavor.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/flavors/base_flavor.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/flavors/local_flavor.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/flavors/local_flavor.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/flavors/production_flavor.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/flavors/production_flavor.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/models/models.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/models/models.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/models/student_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/models/student_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/models/user_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/models/user_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/modules/restful_module/restful_module_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/modules/restful_module/restful_module_impl.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/services/user_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/services/user_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/shared.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/shared.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/melos.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/melos.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +25,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/.pub-cache/hosted/pub.dev/dio-5.2.0/lib/src/interceptor.dart" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/fvm/versions/3.10.3/packages/flutter/lib/src/scheduler/ticker.dart" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -101,7 +54,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
@@ -133,6 +86,21 @@
       <option name="presentableId" value="Default" />
       <updated>1686152671973</updated>
     </task>
+    <task id="LOCAL-00001" summary="Update">
+      <created>1686397015661</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686397015661</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update">
+      <created>1686397026821</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686397026821</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
