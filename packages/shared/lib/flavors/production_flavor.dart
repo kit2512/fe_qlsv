@@ -6,7 +6,7 @@ class ProductionFlavor implements AppFlavor {
   @override
   FlavorConfig admin = FlavorConfig(variables: {
     "mode": "production",
-    "uri": "https://fe-qlsv.web.app/#/",
+    "uri": "https://fe-qlsv.web.app/#",
     "baseUrl": "https://kma-apis.hvg.id.vn/",
     "logging": false,
   });

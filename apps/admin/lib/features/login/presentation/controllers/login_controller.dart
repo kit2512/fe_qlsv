@@ -9,6 +9,12 @@ class LoginController extends GetxController {
 
   Rx<String?> errorMessage = Rx<String?>(null);
 
+  @override
+  void onInit() {
+    _userService.logout();
+    super.onInit();
+  }
+
   void login(
     String username,
     String password,
