@@ -37,6 +37,16 @@ Future<void> initDependencies() async {
       restfulModule: Get.find<RestfulModule>(),
     ),
   );
+
+  Get.put<UserRepository>(UserRepository(restfulModule: Get.find()),
+      permanent: true);
+
+  Get.put<FacultyRepository>(FacultyRepository(), permanent: true);
+
+  Get.put<StudentRepository>(StudentRepository(), permanent: true);
+
+  Get.put<MajorRepository>(MajorRepository(), permanent: true);
+
   AdaptiveLayout.setBreakpoints(
     mediumScreenMinWidth: MediaQueryBreakpoints.small,
     largeScreenMinWidth: MediaQueryBreakpoints.medium,

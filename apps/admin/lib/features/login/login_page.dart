@@ -13,7 +13,13 @@ class LoginPage extends GetView<LoginController> {
         title: const Text("Login Page"),
       ),
       body: Center(
-        child: CommonLoginForm(),
+        child: Obx(
+          () => CommonLoginForm(
+            onSubmit: controller.login,
+            errorMessage: controller.errorMessage.value,
+            isLoading: Get.find<LoadingController>().isLoading.value,
+          ),
+        ),
       ),
     );
   }

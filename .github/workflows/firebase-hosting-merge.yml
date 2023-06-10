@@ -9,6 +9,9 @@ name: Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    env:
+      APP_FLAVOR: production
+
     steps:
       - uses: actions/checkout@v3
       - run: sudo snap install flutter --classic && flutter channel stable && flutter config --enable-web && export PATH="$HOME/.pub-cache/bin:$PATH" && dart pub global activate melos && melos bootstrap && melos run build_admin && melos run build_student && melos run build_lecturer

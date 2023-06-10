@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared/shared.dart';
@@ -12,12 +14,17 @@ class AuthMiddleware extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
     try {
-      _userService.checkTokenExpire().then((value) {
-        if (!value) {
-          launchUrl(Uri.parse(AppFlavor.current.console.variables['uri']),
-              webOnlyWindowName: '_self');
-        }
-      });
+      // _userService.checkTokenExpire().then((value) {
+      //   if (!value) {
+      //     launchUrl(Uri.parse(AppFlavor.current.console.variables['uri']),
+      //         webOnlyWindowName: '_self');
+      //   }
+      // });
+      if (document.cookie == null || document.cookie!.isEmpty) {
+        launchUrl(
+            Uri.parse(AppFlavor.current.admin.variables['uri'] + "/login"),
+            webOnlyWindowName: '_self');
+      }
     } catch (e, stacktrace) {
       logger.e("AUTH MIDDLEWARE ERROR", e.toString(), stacktrace);
     }

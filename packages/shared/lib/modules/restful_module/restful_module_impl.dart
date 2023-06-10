@@ -1,6 +1,8 @@
 import 'dart:html';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:dio/io.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_flavor/flutter_flavor.dart';
 import 'package:get/get.dart';
@@ -31,7 +33,10 @@ class RestfulModuleDioImpl implements RestfulModule {
     dio
       ..options.connectTimeout = const Duration(milliseconds: 120000)
       ..options.receiveTimeout = const Duration(milliseconds: 120000)
-      ..options.headers = {'Content-Type': 'application/json; charset=utf-8'}
+      ..options.headers = {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': 'true'
+      }
       ..interceptors.add(
         InterceptorsWrapper(
           onRequest: (
@@ -44,16 +49,16 @@ class RestfulModuleDioImpl implements RestfulModule {
 
             if (kDebugMode) logger.d('Token: $token');
 
-            // if (token != null) {
-            //   options.headers
-            //       .putIfAbsent('Authorization', () => 'Bearer $token');
-            // } else {
-            //   String? localToken = await authToken;
-            //   if (localToken != null) {
-            //     document.cookie = "token=$localToken;domain=.higate.io";
-            //   }
-            //   logger.w('Auth token is null');
-            // }
+            if (token != null) {
+              options.headers
+                  .putIfAbsent('Authorization', () => 'Bearer $token');
+            } else {
+              String? localToken = await authToken;
+              if (localToken != null) {
+                document.cookie = "token=$localToken;domain=.higate.io";
+              }
+              logger.w('Auth token is null');
+            }
             return requestInterceptorHandler.next(options);
           },
           onError: (dioError, handler) => handler.next(dioError),
@@ -70,6 +75,14 @@ class RestfulModuleDioImpl implements RestfulModule {
           logPrint: print));
     } else {
       dio.interceptors.add(LogInterceptor(error: true, logPrint: print));
+    }
+    if (!kIsWeb) {
+      (dio.httpClientAdapter as IOHttpClientAdapter).onHttpClientCreate =
+          (client) {
+        client.badCertificateCallback =
+            (X509Certificate cert, String host, int port) => true;
+        return client;
+      };
     }
 
     return dio;
@@ -141,6 +154,7 @@ class RestfulModuleDioImpl implements RestfulModule {
     final result = await _dio.delete<T>(
       uri,
       queryParameters: query,
+      data: data,
       options:
           Options(headers: options?.headers, contentType: options?.contentType),
     );

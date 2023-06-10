@@ -41,12 +41,14 @@ final appTheme = ThemeData(
           horizontal: 32.0,
         ),
       ),
+
       backgroundColor: MaterialStateProperty.all(AppColors.primary),
       textStyle: MaterialStateProperty.all(
         const TextStyle(
           color: Colors.white,
         ),
       ),
+
     ),
   ),
   dataTableTheme: DataTableThemeData(
@@ -77,3 +79,11 @@ final appTheme = ThemeData(
     ),
   ),
 );
+
+class AppTextTheme {
+  static final pageTitleTheme = TextStyle(
+  fontSize: 24.0,
+  fontWeight: FontWeight.bold,
+  color: AppColors.textColor,
+  );
+}

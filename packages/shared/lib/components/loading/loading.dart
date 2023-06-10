@@ -2,74 +2,46 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class LoadingController extends GetxController {
-  startLoading(bool? isFirst, Rx<bool> isLoading) async {
-    if (isFirst == true) {
-      await Future.delayed(Duration.zero);
-      isLoading.value = true;
-      Get.dialog(
-          const AlertDialog(
-            content: CommonLoading(),
-          ),
-          barrierDismissible: false);
-    }
+  RxBool isLoading = false.obs;
+  startLoading() async {
+    isLoading.value = true;
   }
 
-  endLoading(bool? isFirst, Rx<bool> isLoading) {
-    if (isFirst == true) {
-      isLoading.value = false;
-      Get.back();
-    }
+  endLoading() {
+    isLoading.value = false;
   }
 }
 
-class CommonLoading extends StatefulWidget {
-  const CommonLoading({super.key});
-
-  @override
-  State<CommonLoading> createState() => _CommonLoadingState();
-}
-
-class _CommonLoadingState extends State<CommonLoading> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
+class CommonLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       width: 456,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-              width: 100,
-              height: 100,
-              child: const CircularProgressIndicator()
-          ),
-          const SizedBox(height: 32),
-          const Text(
-            'Loading...',
-            style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.w700,
+      child: Container(
+        width: 600,
+        padding: const EdgeInsets.all(32.0),
+        child: const Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(width: 50, height: 50, child: CircularProgressIndicator()),
+            SizedBox(height: 32),
+            Text(
+              'Loading...',
+              style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.w700,
+              ),
             ),
-          ),
-          const SizedBox(height: 16),
-          const Text(
-            'It will take a few seconds.',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.w400,
-            )
-          ),
-        ],
+            SizedBox(height: 16),
+            Text('It will take a few seconds.',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w400,
+                )),
+          ],
+        ),
       ),
     );
   }

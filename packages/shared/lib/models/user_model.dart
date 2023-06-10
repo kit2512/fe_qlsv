@@ -1,3 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
+
+enum UserGender {
+  male, female,
+}
+
+enum UserRole {
+  admin, student, lecturer,
+}
+
 class UserModel {
   String uid;
   String firstName;
@@ -5,13 +15,13 @@ class UserModel {
   String email;
   String phoneNumber;
   String address;
-  String dateOfBirth;
+  DateTime dateOfBirth;
   String citizenId;
   String nation;
   String religion;
   String nationality;
-  String gender;
-  String roleName;
+  UserGender gender;
+  UserRole roleName;
 
   UserModel({
     required this.uid,
@@ -32,34 +42,34 @@ class UserModel {
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       uid: json["uid"],
-      firstName: json["firstName"],
-      lastName: json["lastName"],
+      firstName: json["first_name"],
+      lastName: json["last_name"],
       email: json["email"],
-      phoneNumber: json["phoneNumber"],
+      phoneNumber: json["phone_number"],
       address: json["address"],
-      dateOfBirth: json["dateOfBirth"],
-      citizenId: json["citizenId"],
+      dateOfBirth: DateFormat("yyyy-MM-DD").parse(json["date_of_birth"]),
+      citizenId: json["citizen_id"],
       nation: json["nation"],
       religion: json["religion"],
       nationality: json["nationality"],
-      gender: json["gender"],
-      roleName: json["roleName"],
+      gender: UserGender.values.byName(json["gender"]),
+      roleName: UserRole.values.byName(json["role_name"])
     );
   }
 
   Map<String, dynamic> toJson() => {
         "uid": uid,
-        "firstName": firstName,
-        "lastName": lastName,
+        "first_name": firstName,
+        "last_name": lastName,
         "email": email,
-        "phoneNumber": phoneNumber,
+        "phone_number": phoneNumber,
         "address": address,
-        "dateOfBirth": dateOfBirth,
-        "citizenId": citizenId,
+        "date_of_birth": DateFormat("yyyy-MM-DD").format(dateOfBirth),
+        "citizen_id": citizenId,
         "nation": nation,
         "religion": religion,
         "nationality": nationality,
-        "gender": gender,
-        "roleName": roleName,
+        "gender": gender.name,
+        "role_name": roleName.name,
       };
 }

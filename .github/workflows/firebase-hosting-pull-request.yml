@@ -7,10 +7,11 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
+    env:
+      APP_FLAVOR: production
     steps:
       - uses: actions/checkout@v3
-      - run: sudo snap install flutter --classic && flutter channel stable && flutter config --enable-web && export PATH="$HOME/.pub-cache/bin:$PATH" && dart pub global activate melos && melos bootstrap
-      - run: melos run build_admin
+      - run: sudo snap install flutter --classic && flutter channel stable && flutter config --enable-web && export PATH="$HOME/.pub-cache/bin:$PATH" && dart pub global activate melos && melos bootstrap && melos run build_admin && melos run build_student && melos run build_lecturer
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
@@ -18,7 +19,6 @@ jobs:
           channelId: live
           projectId: fe-qlsv
           target: admin
-      - run: melos run build_student
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

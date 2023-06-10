@@ -1,4 +1,5 @@
 import 'package:admin/routes/go_routes.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
@@ -11,17 +12,14 @@ class StudentPage extends GetView<StudentsController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return CommonContentPage(
+      onInit: controller.getStudentList,
+      content: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
             "Manage student",
-            style: TextStyle(
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
-              color: AppColors.textColor,
-            ),
+            style: AppTextTheme.pageTitleTheme,
           ),
           const SizedBox(height: 24.0),
           Row(
@@ -91,7 +89,7 @@ class StudentPage extends GetView<StudentsController> {
                 },
                 icon: const Icon(Icons.add),
                 label: const Text("Add student"),
-              )
+              ),
             ],
           ),
           const SizedBox(height: 24.0),
@@ -101,52 +99,36 @@ class StudentPage extends GetView<StudentsController> {
               scaleEnabled: false,
               constrained: false,
               child: Scrollbar(
-                child: DataTable(
-                  showCheckboxColumn: true,
-                  columns: const [
-                    DataColumn(label: Text("Student code")),
-                    DataColumn(label: Text("First name")),
-                    DataColumn(label: Text("Last name")),
-                    DataColumn(label: Text("Major ID")),
-                    DataColumn(label: Text("Class ID")),
-                    DataColumn(label: Text("Gender")),
-                    DataColumn(label: Text("Date of birth")),
-                    DataColumn(label: Text("Year of admission")),
-                    DataColumn(label: Text("Graduation year")),
-                    DataColumn(label: Text("Email")),
-                    DataColumn(label: Text("Phone number")),
-                    DataColumn(label: Text("Citizen ID")),
-                    DataColumn(label: Text("Address")),
-                    DataColumn(label: Text("Nation")),
-                    DataColumn(label: Text("Religion")),
-                  ],
-                  rows: List.generate(
-                    20,
-                    (index) => DataRow(
-                      onSelectChanged: (value) {},
-                      color: index.isEven
-                          ? MaterialStatePropertyAll(
-                              AppColors.outline.withOpacity(0.1))
-                          : null,
-                      cells: const [
-                        DataCell(Text("CT050222")),
-                        DataCell(Text("Nguyen")),
-                        DataCell(Text("Van A")),
-                        DataCell(Text("CT")),
-                        DataCell(Text("D")),
-                        DataCell(Text("Male")),
-                        DataCell(Text("01/01/2001")),
-                        DataCell(Text("2020")),
-                        DataCell(Text("2024")),
-                        DataCell(Text("dannamdinh49@gmail.com")),
-                        DataCell(Text("0123456789")),
-                        DataCell(Text("123456789")),
-                        DataCell(Text("123 Nguyen Van Linh")),
-                        DataCell(Text("Kinh")),
-                        DataCell(Text("Khong")),
+                child: Obx(
+                  () => DataTable(
+                      showCheckboxColumn: true,
+                      columns: const [
+                        DataColumn(label: Text("Student code")),
+                        DataColumn(label: Text("First name")),
+                        DataColumn(label: Text("Last name")),
+                        DataColumn(label: Text("Major ID")),
+                        DataColumn(label: Text("Class ID")),
+                        DataColumn(label: Text("Gender")),
+                        DataColumn(label: Text("Date of birth")),
+                        DataColumn(label: Text("Year of admission")),
+                        DataColumn(label: Text("Graduation year")),
+                        DataColumn(label: Text("Email")),
+                        DataColumn(label: Text("Phone number")),
+                        DataColumn(label: Text("Citizen ID")),
+                        DataColumn(label: Text("Address")),
+                        DataColumn(label: Text("Nation")),
+                        DataColumn(label: Text("Religion")),
+                        DataColumn(label: Text("Actions")),
                       ],
-                    ),
-                  ),
+                      rows: List.generate(
+                        controller.listStudent.value.items?.length ?? 0,
+                        (index) {
+                          final student =
+                              controller.listStudent.value.items![index];
+                          return buildDataRow(student, index);
+                        },
+                        growable: false,
+                      )),
                 ),
               ),
             ),
@@ -158,6 +140,62 @@ class StudentPage extends GetView<StudentsController> {
           ),
         ],
       ),
+    );
+  }
+
+  DataRow buildDataRow(StudentModel student, int index) {
+    return DataRow(
+      selected: controller.selectedStudentId.value == student.uid,
+      color: index.isEven
+          ? MaterialStatePropertyAll(AppColors.outline.withOpacity(0.1))
+          : null,
+      cells: [
+        DataCell(Text(student.studentCode.trim())),
+        DataCell(Text(student.firstName.trim())),
+        DataCell(Text(student.lastName.trim())),
+        DataCell(Text(student.majorId.toString())),
+        DataCell(Text(student.classId.toString())),
+        DataCell(Text(student.gender.name)),
+        DataCell(Text(DateFormat("DD/MM/yyyy").format(student.dateOfBirth))),
+        DataCell(Text(student.yearOfAdmission.toString())),
+        DataCell(Text(student.graduationYear.toString())),
+        DataCell(Text(student.email)),
+        DataCell(Text(student.phoneNumber)),
+        DataCell(Text(student.citizenId)),
+        DataCell(Text(student.address)),
+        DataCell(Text(student.nation)),
+        DataCell(Text(student.religion)),
+        DataCell(ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.error,
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            ),
+            onPressed: () {
+              Get.dialog(
+                AlertDialog(
+                  title: Text("Delete student"),
+                  content: Text(
+                      "Are you sure you want to delete ${student.firstName} ${student.lastName}?"),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      child: Text("Cancel"),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Get.back();
+                        controller.deleteStudent(student.studentCode);
+                      },
+                      child: Text("Delete"),
+                    ),
+                  ],
+              ));
+            },
+            icon: const Icon(Icons.delete),
+            label: const Text("Delete")))
+      ],
     );
   }
 }

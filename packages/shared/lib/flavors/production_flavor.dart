@@ -5,22 +5,22 @@ import 'base_flavor.dart';
 class ProductionFlavor implements AppFlavor {
   @override
   FlavorConfig admin = FlavorConfig(variables: {
-    "mode": "dev",
-    "uri": "http://localhost.qlsv.com:8080",
+    "mode": "production",
+    "uri": "https://fe-qlsv.web.app/",
     "baseUrl": "https://kma-apis.hvg.id.vn/",
     "logging": true,
   });
 
   @override
   FlavorConfig student = FlavorConfig(variables: {
-    "mode": "dev",
+    "mode": "production",
     "uri": "http://localhost.qlsv.io:8081",
     "baseUrl": "https://kma-apis.hvg.id.vn/",
     "logging": true,
   });
   @override
   FlavorConfig lecturer = FlavorConfig(variables: {
-    "mode": "dev",
+    "mode": "production",
     "uri": "http://localhost.qlsv.io:8082",
     "baseUrl": "https://kma-apis.hvg.id.vn/",
     "logging": true,
@@ -28,7 +28,7 @@ class ProductionFlavor implements AppFlavor {
 
   @override
   FlavorConfig console = FlavorConfig(variables: {
-    "mode": "dev",
+    "mode": "production",
     "uri": "http://localhost.qlsv.io:8082",
     "baseUrl": "https://kma-apis.hvg.id.vn/",
     "logging": true,

@@ -18,8 +18,8 @@ class Endpoints {
 
   // faculty
   static final String faculty = "${baseUrl}faculty";
-  static String facultyDetails(String uid) => "${baseUrl}faculty/$uid";
-  static String facultyMajors(String uid) => "${baseUrl}faculty/$uid/major";
+  static String facultyDetails(id) => "${baseUrl}faculty/$id";
+  static String facultyMajors(int facultyId) => "${baseUrl}faculty/$facultyId/major";
   static String facultyLecturers(String uid) =>
       "${baseUrl}faculty/$uid/lecturer";
   static String facultyStudents(String uid) => "${baseUrl}faculty/$uid/student";
@@ -33,4 +33,5 @@ class Endpoints {
 
   // student
   static final String student = "${baseUrl}student";
+  static final String allStudents = "${baseUrl}student/all";
 }

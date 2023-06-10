@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+
 import 'user_model.dart';
 
 class StudentModel extends UserModel {
@@ -40,12 +42,12 @@ class StudentModel extends UserModel {
         graduationYear: json['graduation_year'],
         phoneNumber: json['phone_number'],
         address: json['address'],
-        dateOfBirth: json['date_of_birth'],
+        dateOfBirth: DateFormat("yyyy-MM-DD").parse(json['date_of_birth'].replaceAll("/", "-")),
         citizenId: json['citizen_id'],
         nation: json['nation'],
         religion: json['religion'],
-        gender: json['gender'],
-        roleName: json['role_name'],
+        gender: UserGender.values.byName(json['gender']),
+        roleName: UserRole.values.byName(json['role_name']),
         nationality: json['nationality'],
       );
 
@@ -63,12 +65,12 @@ class StudentModel extends UserModel {
     data['graduation_year'] = graduationYear;
     data['phone_number'] = phoneNumber;
     data['address'] = address;
-    data['date_of_birth'] = dateOfBirth;
+    data['date_of_birth'] = DateFormat("yyyy-MM-DD").format(dateOfBirth);
     data['citizen_id'] = citizenId;
     data['nation'] = nation;
     data['religion'] = religion;
-    data['gender'] = gender;
-    data['role_name'] = roleName;
+    data['gender'] = gender.name;
+    data['role_name'] = roleName.name;
     data['nationality'] = nationality;
     return data;
   }

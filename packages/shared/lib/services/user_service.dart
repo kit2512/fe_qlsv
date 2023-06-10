@@ -1,12 +1,16 @@
 // ignore_for_file: avoid_web_libraries_in_flutter
 
+import 'dart:convert';
 import 'dart:html';
 
+import 'package:dartz/dartz.dart';
 import 'package:flutter_flavor/flutter_flavor.dart';
 import 'package:get/get.dart';
+import 'package:shared/constants/endpoints.dart';
 import 'package:shared/flavors/flavors.dart';
 import 'package:shared/models/models.dart';
 import 'package:shared/modules/modules.dart';
+import 'package:shared/results/results.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UserService extends GetxService {
@@ -49,6 +53,54 @@ class UserService extends GetxService {
       return true;
     } catch (e) {
       return false;
+    }
+  }
+
+  Future<Either<Failure, bool>> login(String username, String password) async {
+    try {
+      final res = await restfulModule.post(
+        FlavorConfig.instance.variables['baseUrl'] + 'login',
+        {
+          "email": username,
+          "password": password,
+        },
+      );
+      if (res.statusCode == 200) {
+        final data = jsonDecode(res.body);
+        final token = data["token"];
+        document.cookie = "token=$token";
+        final result = await getCurrentUserInfo();
+        result.fold(
+          (l) => const SystemFailure(message: "Error login"),
+          (r) => user.value = r,
+        );
+        return const Right(true);
+      } else {
+        return Left(
+          SystemFailure(
+            message: res.statusMessage,
+          ),
+        );
+      }
+    } on Exception catch (e) {
+      return Left(
+        SystemFailure(
+          message: e.toString(),
+        ),
+      );
+    }
+  }
+
+  Future<Either<Failure, UserModel>> getCurrentUserInfo() async {
+    final res = await restfulModule.get(Endpoints.users);
+    if (res.statusCode == 200) {
+      return Right(UserModel.fromJson(jsonDecode(res.body)));
+    } else {
+      return Left(
+        SystemFailure(
+          message: res.statusMessage,
+        ),
+      );
     }
   }
 }

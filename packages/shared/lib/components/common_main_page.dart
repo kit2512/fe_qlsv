@@ -1,5 +1,6 @@
 import 'package:adaptive_layout/adaptive_layout.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared/constants/constants.dart';
 import 'package:shared/shared.dart';
@@ -18,11 +19,12 @@ class NavigationItem {
   });
 }
 
-class CommonMainPage extends StatelessWidget {
+class CommonMainPage extends GetView<LoadingController> {
   final List<NavigationItem> navigationItems;
   final Widget content;
   final String selectedRoute;
   final Widget? floatingActionButton;
+  final Function? onInit;
 
   const CommonMainPage({
     super.key,
@@ -30,7 +32,10 @@ class CommonMainPage extends StatelessWidget {
     required this.content,
     this.floatingActionButton,
     required this.selectedRoute,
+    this.onInit,
   });
+
+
 
   Widget buildContent() {
     return Container(
@@ -41,33 +46,50 @@ class CommonMainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: AdaptiveLayout(
-        smallLayout: Drawer(
-          backgroundColor: Colors.white,
-          child: buildMenus(),
-        ),
-      ),
-      body: Column(
-        children: [
-          const CommonAppBar(),
-          Expanded(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                buildSideBar(),
-                AdaptiveLayout(
-                  largeLayout: const VerticalDivider(),
-                  mediumLayout: const SizedBox.shrink(),
-                ),
-                Expanded(child: buildContent()),
-              ],
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        Scaffold(
+          drawer: AdaptiveLayout(
+            smallLayout: Drawer(
+              backgroundColor: Colors.white,
+              child: buildMenus(),
             ),
           ),
-        ],
-      ),
-      floatingActionButton: floatingActionButton,
+          body: Column(
+            children: [
+              const CommonAppBar(),
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    buildSideBar(),
+                    AdaptiveLayout(
+                      largeLayout: const VerticalDivider(),
+                      mediumLayout: const SizedBox.shrink(),
+                    ),
+                    Expanded(child: buildContent()),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          floatingActionButton: floatingActionButton,
+        ),
+        Obx(
+          () => controller.isLoading.value ? Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: Material(
+              color: Colors.black.withOpacity(0.5),
+              child: CommonLoading(),
+            ),
+          ) : const SizedBox.shrink(),
+        )
+      ],
     );
   }
 

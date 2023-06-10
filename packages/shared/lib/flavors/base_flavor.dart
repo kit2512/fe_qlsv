@@ -6,7 +6,6 @@ import 'production_flavor.dart';
 abstract class AppFlavor {
   static AppFlavor? _current;
 
-
   static AppFlavor get current {
     if (_current == null) {
       throw 'Exception: Must call init';
