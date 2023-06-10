@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shared/constants/colors.dart';
 
 class CommonLoginForm extends StatefulWidget {
   final bool isLoading;
   final Function(String, String)? onSubmit;
   final String? errorMessage;
+
   const CommonLoginForm({
     super.key,
     this.isLoading = false,
@@ -21,6 +23,8 @@ class _CommonLoginFormState extends State<CommonLoginForm> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+  bool _showPassword = false;
+
   @override
   void didChangeDependencies() {
     if (widget.errorMessage != null) {
@@ -31,6 +35,22 @@ class _CommonLoginFormState extends State<CommonLoginForm> {
       );
     }
     super.didChangeDependencies();
+  }
+
+  void _login() {
+    if (_formKey.currentState!.validate()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Loggin in...'),
+        ),
+      );
+      if (widget.onSubmit != null) {
+        widget.onSubmit!(
+          emailController.text,
+          passwordController.text,
+        );
+      }
+    }
   }
 
   @override
@@ -52,6 +72,7 @@ class _CommonLoginFormState extends State<CommonLoginForm> {
               textAlign: TextAlign.center,
             ),
             TextFormField(
+              enabled: !widget.isLoading,
               controller: emailController,
               decoration: const InputDecoration(
                 hintText: 'Email',
@@ -62,47 +83,56 @@ class _CommonLoginFormState extends State<CommonLoginForm> {
                 }
                 return null;
               },
+              onFieldSubmitted: (val) => _login,
+              onSaved: (val) => _login,
             ),
             const SizedBox(
               height: 16.0,
             ),
             TextFormField(
+              enabled: !widget.isLoading,
               controller: passwordController,
-              obscureText: true,
-              decoration: const InputDecoration(
+              obscureText: !_showPassword,
+              decoration:  InputDecoration(
                 hintText: 'Password',
+                suffixIcon: IconButton(onPressed: () {
+                  setState(() {
+                    _showPassword = !_showPassword;
+                  });
+                }, icon: Icon(_showPassword ? Icons.visibility_off : Icons.visibility)),
               ),
+
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your password';
                 }
                 return null;
               },
+              onSaved: (val) => _login,
+              onFieldSubmitted: (val) => _login,
             ),
             const SizedBox(
               height: 16.0,
             ),
-            ElevatedButton.icon(
-              icon: const Icon(Icons.arrow_forward_rounded),
-              onPressed: widget.isLoading
-                  ? null
-                  : () {
-                      if (_formKey.currentState!.validate()) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Loggin in...'),
-                          ),
-                        );
-                        if (widget.onSubmit != null) {
-                          widget.onSubmit!(
-                            emailController.text,
-                            passwordController.text,
-                          );
-                        }
-                      }
-                    },
-              label: const Text("Go"),
+            if (widget.errorMessage != null)
+              Text(
+                widget.errorMessage!,
+                style: const TextStyle(color: AppColors.error),
+              ),
+            const SizedBox(
+              height: 16.0,
             ),
+            !widget.isLoading
+                ? ElevatedButton.icon(
+                    icon: const Icon(Icons.arrow_forward_rounded),
+                    onPressed: _login,
+                    label: const Text("Go"),
+                  )
+                : const SizedBox(
+                    height: 50,
+                    width: 50,
+                    child: CircularProgressIndicator.adaptive(),
+                  )
           ],
         ),
       ),

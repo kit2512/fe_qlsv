@@ -88,9 +88,10 @@ class MajorRepository extends BaseRepository {
         ));
       }
     } on DioException catch (e) {
+      final data = jsonDecode(e.response?.data ?? "{}");
       return Left(SystemFailure(
         errorCode: e.response?.statusCode.toString() ?? '500',
-        message: e.response?.data['msg'] ?? e.toString(),
+        message: data['msg'] ?? e.toString(),
       ));
     }
   }

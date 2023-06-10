@@ -35,8 +35,6 @@ class CommonMainPage extends GetView<LoadingController> {
     this.onInit,
   });
 
-
-
   Widget buildContent() {
     return Container(
       padding: const EdgeInsets.all(16.0),
@@ -46,17 +44,17 @@ class CommonMainPage extends GetView<LoadingController> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        Scaffold(
-          drawer: AdaptiveLayout(
-            smallLayout: Drawer(
-              backgroundColor: Colors.white,
-              child: buildMenus(),
-            ),
-          ),
-          body: Column(
+    return Scaffold(
+      drawer: AdaptiveLayout(
+        smallLayout: Drawer(
+          backgroundColor: Colors.white,
+          child: buildMenus(),
+        ),
+      ),
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Column(
             children: [
               const CommonAppBar(),
               Expanded(
@@ -69,27 +67,32 @@ class CommonMainPage extends GetView<LoadingController> {
                       largeLayout: const VerticalDivider(),
                       mediumLayout: const SizedBox.shrink(),
                     ),
-                    Expanded(child: buildContent()),
+                    Expanded(
+                      child: buildContent(),
+                    ),
                   ],
                 ),
               ),
             ],
           ),
-          floatingActionButton: floatingActionButton,
-        ),
-        Obx(
-          () => controller.isLoading.value ? Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: Material(
-              color: Colors.black.withOpacity(0.5),
-              child: CommonLoading(),
+          AnimatedSwitcher(
+            duration: const Duration(seconds: 5),
+            child: Obx(
+              () => controller.isLoading.value
+                  ? SizedBox(
+                      width: Get.width,
+                      height: Get.height,
+                      child: Material(
+                        color: Colors.black.withOpacity(0.5),
+                        child: const CommonLoading(),
+                      ),
+                    )
+                  : const SizedBox.shrink(),
             ),
-          ) : const SizedBox.shrink(),
-        )
-      ],
+          )
+        ],
+      ),
+      floatingActionButton: floatingActionButton,
     );
   }
 
@@ -110,19 +113,18 @@ class CommonMainPage extends GetView<LoadingController> {
         AdaptiveLayout(
           largeLayout: const SizedBox.shrink(),
           mediumLayout: Builder(
-            builder: (context) => GestureDetector(
-              onTap: Scaffold.of(context).closeDrawer,
-              child: const SizedBox(
-                height: 60.0,
-                child: Row(
-                  children: [
-                    Icon(Icons.close),
-                    SizedBox(
-                      width: 12,
-                    ),
-                    Text("Close"),
-                  ],
-                ),
+            builder: (context) => Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text("Menu", style: AppTextTheme.pageTitleTheme),
+                  IconButton(
+                    onPressed: Scaffold.of(context).closeDrawer,
+                    icon: Icon(Icons.close_rounded),
+                  ),
+                ],
               ),
             ),
           ),
@@ -133,7 +135,13 @@ class CommonMainPage extends GetView<LoadingController> {
             itemBuilder: (context, index) {
               final navItem = navigationItems[index];
               return ListTile(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                selected: selectedRoute == navItem.route,
+                selectedTileColor: AppColors.primary.withOpacity(0.1),
                 onTap: () {
+                  Scaffold.of(context).closeDrawer();
                   context.goNamed(navItem.route,
                       queryParameters: navItem.queryParameters == null
                           ? {}
@@ -159,20 +167,47 @@ class CommonMainPage extends GetView<LoadingController> {
             },
           ),
         ),
-        GestureDetector(
-          onTap: () {
-            // TODO: Handle log out
+        InkWell(
+          onTap: () async {
+            final result = await Get.dialog(
+              AlertDialog(
+                title: const Text("Log out"),
+                content: const Text("Are you sure you want to log out?"),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Get.back(result: false);
+                    },
+                    child: const Text("Cancel"),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Get.back(result: true);
+                    },
+                    child: const Text("Log out"),
+                  ),
+                ],
+              )
+            );
+            if (result == true) {
+              final userService = Get.find<UserService>();
+              userService.logout();
+            }
+
           },
-          child: const SizedBox(
-            height: 60.0,
-            child: Row(
-              children: [
-                Icon(Icons.login_rounded),
-                SizedBox(
-                  width: 12,
-                ),
-                Text("Log out"),
-              ],
+          child: const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Icon(Icons.logout_rounded),
+                  SizedBox(
+                    width: 16.0,
+                  ),
+                  Text("Log out"),
+                ],
+              ),
             ),
           ),
         ),
@@ -205,10 +240,20 @@ class CommonAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           AdaptiveLayout(
-            smallLayout: buildDrawerButton(),
             mediumLayout: buildDrawerButton(),
             largeLayout: const SizedBox.shrink(),
-          )
+          ),
+          const SizedBox(
+            width: 16.0,
+          ),
+          const Text(
+            "HiSchool Management System",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ],
       ),
     );

@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 
 class CommonContentPage extends StatefulWidget {
-  const CommonContentPage({super.key, required this.content, this.onInit, this.floatingActionButton});
+  const CommonContentPage({
+    super.key,
+    required this.content,
+    this.onInit,
+    this.floatingActionButton,
+  });
+
   final Function? onInit;
+
   final Widget content;
   final Widget? floatingActionButton;
-
 
   @override
   State<CommonContentPage> createState() => _CommonContentPageState();

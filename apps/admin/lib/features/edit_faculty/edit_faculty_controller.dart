@@ -17,7 +17,7 @@ class EditFacultyController extends GetxController {
 
   @override
   void onInit() {
-    facultyId = int.parse(GoRoutes.params["id"]);
+    facultyId = int.parse(GoRoutes.pathParameters["id"]);
     facultyNameController.addListener(() {
       faculty.value.facultyName = facultyNameController.text;
     });
@@ -84,8 +84,8 @@ class EditFacultyController extends GetxController {
     _loadingController.endLoading();
   }
 
-  void deleteMajor(MajorModel e) {
-    Get.dialog(
+  void deleteMajor(MajorModel e) async {
+    final result = await Get.dialog(
       AlertDialog(
         title: const Text("Delete Major"),
         content: const Text("Are you sure want to delete this major?"),
@@ -97,30 +97,37 @@ class EditFacultyController extends GetxController {
             child: const Text("Cancel"),
           ),
           TextButton(
-            onPressed: () async {
-              Get.back();
-              _loadingController.startLoading();
-              final res = await _majorRepository.deleteMajor(e.id);
-              res.fold((l) {
-                _loadingController.endLoading();
-                Get.showSnackbar(GetSnackBar(
-                  title: l.message ?? "Error deleting major",
-                  message: l.errorCode,
-                ));
-              }, (r) {
-                _loadingController.endLoading();
-                Get.showSnackbar(GetSnackBar(
-                  title: "Success deleting major",
-                  message: r.majorName,
-                ));
-                initData();
-              });
+            onPressed: ()  {
+              Get.back(result: e);
             },
             child: const Text("Delete"),
           ),
         ],
       ),
     );
+    if (result != null) {
+      _deleteMajor(result);
+    }
+  }
+
+  void _deleteMajor(MajorModel major) async {
+    Get.back();
+    _loadingController.startLoading();
+    final res = await _majorRepository.deleteMajor(major.id);
+    res.fold((l) {
+      _loadingController.endLoading();
+      Get.showSnackbar(GetSnackBar(
+        title: l.message ?? "Error deleting major",
+        message: l.errorCode,
+      ));
+    }, (r) {
+      _loadingController.endLoading();
+      Get.showSnackbar(GetSnackBar(
+        title: "Success deleting major",
+        message: r.majorName,
+      ));
+      initData();
+    });
   }
 
   void editMajor(MajorModel e) {}

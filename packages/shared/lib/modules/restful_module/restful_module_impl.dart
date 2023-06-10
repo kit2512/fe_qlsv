@@ -91,38 +91,46 @@ class RestfulModuleDioImpl implements RestfulModule {
   @override
   Future<CommonResponse<T>> get<T>(String uri,
       {Map<String, dynamic>? query, CommonRequestOptions? options}) async {
-    final result = await _dio.get<T>(
-      uri,
-      queryParameters: query,
-      options:
-          Options(headers: options?.headers, contentType: options?.contentType),
-    );
-    return CommonResponse(
-      body: result.data,
-      headers: Map<String, String>.from(
-          result.headers.map.map((key, value) => MapEntry(key, value[0]))),
-      statusCode: result.statusCode,
-      statusMessage: result.statusMessage,
-    );
+    try {
+      final result = await _dio.get<T>(
+        uri,
+        queryParameters: query,
+        options:
+            Options(headers: options?.headers, contentType: options?.contentType),
+      );
+      return CommonResponse(
+        body: result.data,
+        headers: Map<String, String>.from(
+            result.headers.map.map((key, value) => MapEntry(key, value[0]))),
+        statusCode: result.statusCode,
+        statusMessage: result.statusMessage,
+      );
+    } on Exception catch (_) {
+      rethrow;
+    }
   }
 
   @override
   Future<CommonResponse<T>> post<T>(String uri, data,
       {Map<String, dynamic>? query, CommonRequestOptions? options}) async {
-    final result = await _dio.post<T>(
-      uri,
-      data: data,
-      queryParameters: query,
-      options:
-          Options(headers: options?.headers, contentType: options?.contentType),
-    );
-    return CommonResponse(
-      body: result.data,
-      headers: Map<String, String>.from(
-          result.headers.map.map((key, value) => MapEntry(key, value[0]))),
-      statusCode: result.statusCode,
-      statusMessage: result.statusMessage,
-    );
+    try {
+      final result = await _dio.post<T>(
+        uri,
+        data: data,
+        queryParameters: query,
+        options:
+            Options(headers: options?.headers, contentType: options?.contentType),
+      );
+      return CommonResponse(
+        body: result.data,
+        headers: Map<String, String>.from(
+            result.headers.map.map((key, value) => MapEntry(key, value[0]))),
+        statusCode: result.statusCode,
+        statusMessage: result.statusMessage,
+      );
+    } on Exception catch (_) {
+      rethrow;
+    }
   }
 
   @override
@@ -130,20 +138,24 @@ class RestfulModuleDioImpl implements RestfulModule {
       {data,
       Map<String, dynamic>? query,
       CommonRequestOptions? options}) async {
-    final result = await _dio.put<T>(
-      uri,
-      data: data,
-      queryParameters: query,
-      options:
-          Options(headers: options?.headers, contentType: options?.contentType),
-    );
-    return CommonResponse(
-      body: result.data,
-      headers: Map<String, String>.from(
-          result.headers.map.map((key, value) => MapEntry(key, value[0]))),
-      statusCode: result.statusCode,
-      statusMessage: result.statusMessage,
-    );
+    try {
+      final result = await _dio.put<T>(
+        uri,
+        data: data,
+        queryParameters: query,
+        options:
+            Options(headers: options?.headers, contentType: options?.contentType),
+      );
+      return CommonResponse(
+        body: result.data,
+        headers: Map<String, String>.from(
+            result.headers.map.map((key, value) => MapEntry(key, value[0]))),
+        statusCode: result.statusCode,
+        statusMessage: result.statusMessage,
+      );
+    } on DioException catch (_) {
+      rethrow;
+    }
   }
 
   @override
@@ -151,20 +163,24 @@ class RestfulModuleDioImpl implements RestfulModule {
       {data,
       Map<String, dynamic>? query,
       CommonRequestOptions? options}) async {
-    final result = await _dio.delete<T>(
-      uri,
-      queryParameters: query,
-      data: data,
-      options:
-          Options(headers: options?.headers, contentType: options?.contentType),
-    );
-    return CommonResponse(
-      body: result.data,
-      headers: Map<String, String>.from(
-          result.headers.map.map((key, value) => MapEntry(key, value[0]))),
-      statusCode: result.statusCode,
-      statusMessage: result.statusMessage,
-    );
+    try {
+      final result = await _dio.delete<T>(
+        uri,
+        queryParameters: query,
+        data: data,
+        options:
+            Options(headers: options?.headers, contentType: options?.contentType),
+      );
+      return CommonResponse(
+        body: result.data,
+        headers: Map<String, String>.from(
+            result.headers.map.map((key, value) => MapEntry(key, value[0]))),
+        statusCode: result.statusCode,
+        statusMessage: result.statusMessage,
+      );
+    } on DioException catch (_) {
+      rethrow;
+    }
   }
 
   @override

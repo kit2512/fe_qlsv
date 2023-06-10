@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:html';
 
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter_flavor/flutter_flavor.dart';
 import 'package:get/get.dart';
 import 'package:shared/constants/endpoints.dart';
@@ -15,8 +16,12 @@ import 'package:url_launcher/url_launcher.dart';
 
 class UserService extends GetxService {
   final RestfulModule restfulModule;
+  final LocalStorageModule _localStorageModule;
 
-  UserService({required this.restfulModule});
+  UserService({
+    required this.restfulModule,
+    required LocalStorageModule localStorageModule,
+  }) : _localStorageModule = localStorageModule;
 
   final checkTokenUrl =
       '${FlavorConfig.instance.variables['baseUrl']}user/token/check-expiration';
@@ -46,10 +51,25 @@ class UserService extends GetxService {
 
   Future<bool> logout() async {
     try {
-      document.cookie = "token=" ";domain=.higate.io";
-      launchUrl(
-          Uri.parse(AppFlavor.current.console.variables['uri'] + '/login'),
-          webOnlyWindowName: '_self');
+      document.cookie = "";
+      _localStorageModule.clear();
+      user.value = null;
+      late final String url;
+      switch (user.value?.roleName) {
+        case UserRole.admin:
+          url = AppFlavor.current.admin.variables['uri'] + '/login';
+          break;
+        case UserRole.student:
+          url = AppFlavor.current.student.variables['uri'] + '/login';
+          break;
+        case UserRole.lecturer:
+          url = AppFlavor.current.lecturer.variables['uri'] + '/login';
+          break;
+        default:
+          url = AppFlavor.current.admin.variables['uri'] + '/login';
+          break;
+      }
+      launchUrl(Uri.parse(url), webOnlyWindowName: '_self');
       return true;
     } catch (e) {
       return false;
@@ -82,12 +102,17 @@ class UserService extends GetxService {
           ),
         );
       }
-    } on Exception catch (e) {
-      return Left(
-        SystemFailure(
-          message: e.toString(),
-        ),
-      );
+    } on DioException catch (e) {
+      if (e.response?.statusCode == 401) {
+        return const Left(
+          SystemFailure(
+            message: "Username or password is incorrect",
+          ),
+        );
+      } else {
+        return const Left(
+            AuthFailure(message: "Error login, please try again"));
+      }
     }
   }
 

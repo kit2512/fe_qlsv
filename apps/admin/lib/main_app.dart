@@ -30,6 +30,7 @@ Future<void> initDependencies() async {
   Get.put<UserService>(
     UserService(
       restfulModule: Get.find<RestfulModule>(),
+      localStorageModule: Get.find<LocalStorageModule>(),
     ),
   );
 
@@ -41,6 +42,8 @@ Future<void> initDependencies() async {
   Get.put<StudentRepository>(StudentRepository(), permanent: true);
 
   Get.put<MajorRepository>(MajorRepository(), permanent: true);
+
+  Get.put<SubjectRepository>(SubjectRepository(), permanent: true);
 
   AdaptiveLayout.setBreakpoints(
     mediumScreenMinWidth: MediaQueryBreakpoints.small,
@@ -54,6 +57,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      title: "HiSchool Admin",
       debugShowCheckedModeBanner: false,
       scrollBehavior: CustomScrollBehavior(),
       theme: appTheme,

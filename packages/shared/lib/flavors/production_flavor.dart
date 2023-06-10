@@ -8,7 +8,7 @@ class ProductionFlavor implements AppFlavor {
     "mode": "production",
     "uri": "https://fe-qlsv.web.app/#/",
     "baseUrl": "https://kma-apis.hvg.id.vn/",
-    "logging": true,
+    "logging": false,
   });
 
   @override
@@ -16,14 +16,14 @@ class ProductionFlavor implements AppFlavor {
     "mode": "production",
     "uri": "http://localhost.qlsv.io:8081",
     "baseUrl": "https://kma-apis.hvg.id.vn/",
-    "logging": true,
+    "logging": false,
   });
   @override
   FlavorConfig lecturer = FlavorConfig(variables: {
     "mode": "production",
     "uri": "http://localhost.qlsv.io:8082",
     "baseUrl": "https://kma-apis.hvg.id.vn/",
-    "logging": true,
+    "logging": false,
   });
 
   @override
@@ -31,6 +31,6 @@ class ProductionFlavor implements AppFlavor {
     "mode": "production",
     "uri": "http://localhost.qlsv.io:8082",
     "baseUrl": "https://kma-apis.hvg.id.vn/",
-    "logging": true,
+    "logging": false,
   });
 }
