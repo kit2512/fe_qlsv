@@ -9,8 +9,14 @@ class Endpoints {
   // users
   static final String getAllUsers = "${baseUrl}users/all";
   static final String users = "${baseUrl}users";
-  static String user(String uid) => "${baseUrl}users/$uid";
+
+  static final String lecturer = "${baseUrl}lecturer";
+  static String lecturerDetails(String id) => "${baseUrl}lecturer/$id";
+  static String userDetails(String uid) => "${baseUrl}users/$uid";
   static final String changeRole = "${baseUrl}users/change_role";
+
+  // classes
+  static String lecturerClasses(String lecturerId) => "${baseUrl}lecturer/$lecturerId/subject_class";
 
   // password
   static final String changePassword = "${baseUrl}change_password";

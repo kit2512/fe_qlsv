@@ -5,3 +5,5 @@ export 'common_number_paginator.dart';
 export 'custom_scroll_behavior.dart';
 export 'loading/loading.dart';
 export 'common_content_page.dart';
+export 'choose_faculty_field.dart';
+export 'choose_major_field.dart';

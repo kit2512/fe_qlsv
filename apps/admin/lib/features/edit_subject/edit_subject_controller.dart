@@ -47,7 +47,7 @@ class EditSubjectController extends GetxController {
   void getSubject() async {
     _loadingController.startLoading();
     final id = GoRoutes.pathParameters["id"];
-    final res = await _subjectRepository.getSubject(id);
+    final res = await _subjectRepository.getSubjectDetails(id);
     res.fold((l) {
       isError.value = true;
       _loadingController.endLoading();

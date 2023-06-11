@@ -2,7 +2,6 @@ import 'package:adaptive_layout/adaptive_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shared/constants/constants.dart';
 import 'package:shared/shared.dart';
 
 class NavigationItem {
@@ -122,7 +121,7 @@ class CommonMainPage extends GetView<LoadingController> {
                   Text("Menu", style: AppTextTheme.pageTitleTheme),
                   IconButton(
                     onPressed: Scaffold.of(context).closeDrawer,
-                    icon: Icon(Icons.close_rounded),
+                    icon: const Icon(Icons.close_rounded),
                   ),
                 ],
               ),

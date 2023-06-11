@@ -1,23 +1,13 @@
-import 'package:admin/features/add_student/add_students.dart';
-import 'package:admin/features/create_faculty/create_faculty.dart';
-import 'package:admin/features/create_subject/create_subject.dart';
-import 'package:admin/features/login/bindings/login_bindings.dart';
-import 'package:admin/features/login/login_page.dart';
-import 'package:admin/features/students/binding.dart';
-import 'package:admin/features/students/students_page.dart';
-import 'package:admin/features/subject_details/subject_details.dart';
-import 'package:admin/features/subjects/subjects.dart';
+import 'package:admin/features/features.dart';
 import 'package:admin/middleware/auth_middleware.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shared/components/common_main_page.dart';
-
-import '../features/edit_faculty/edit_faculty.dart';
-import '../features/edit_subject/edit_subject.dart';
-import '../features/facuties/faculties.dart';
+import 'package:shared/shared.dart';
 
 class GoRoutes {
+  static String get createLecturer => "/lecturers/create";
+
   static String get editFaculty => "/faculties/edit/:id";
 
   static String get createFaculty => "/faculties/create";
@@ -25,6 +15,10 @@ class GoRoutes {
   static String get classes => "/classes";
 
   static String get lecturers => "/lecturers";
+
+  static String get lecturerDetails => "/lecturers/:id";
+
+  static String get editLecturer => "/lecturers/edit";
 
   static String get profile => "/profile";
 
@@ -45,6 +39,12 @@ class GoRoutes {
   static String get editSubject => "/subjects/edit/:id";
 
   static String get createSubject => "/subjects/create";
+
+  static String get subjectClasses => "/classes";
+
+  static String get subjectClassDetails => "/classes/:id";
+
+  static String get editSubjectClass => "/classes/edit/:id";
 
   static var params = {}.obs;
   static Rx<Object?> extra = Rx<Object?>(null);
@@ -121,6 +121,16 @@ class GoRoutes {
                 route: subjects,
                 iconData: Icons.subject_rounded,
                 label: "Subjects",
+              ),
+              NavigationItem(
+                route: subjectClasses,
+                iconData: Icons.class_rounded,
+                label: "Classes",
+              ),
+              NavigationItem(
+                route: lecturers,
+                iconData: Icons.account_box_rounded,
+                label: "Lecturers",
               ),
             ],
             content: child,
@@ -201,6 +211,30 @@ class GoRoutes {
             path: editSubject,
             bindings: EditSubjectBindings(),
             page: const EditSubjectPage(),
+            routes: [],
+          ),
+          commonRoute(
+            path: subjectClasses,
+            bindings: SubjectClassesBindings(),
+            page: SubjectClassesPage(),
+            routes: [],
+          ),
+          commonRoute(
+            path: subjectClassDetails,
+            bindings: SubjectClassDetailsBinding(),
+            page: SubjectClassesPage(),
+            routes: [],
+          ),
+          commonRoute(
+            path: lecturers,
+            bindings: LecturersBindings(),
+            page: LecturersPage(),
+            routes: [],
+          ),
+          commonRoute(
+            path: editLecturer,
+            bindings: EditLecturerBindings(),
+            page: const EditLecturePage(),
             routes: [],
           ),
         ],

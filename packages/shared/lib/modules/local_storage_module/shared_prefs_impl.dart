@@ -84,7 +84,6 @@ class SharedPrefLocalStorageImpl extends LocalStorageModule {
   @override
   Future<void> clear() async {
     await _ensureInit();
-    // TODO: implement clear
-    throw UnimplementedError();
+    _prefs.clear();
   }
 }

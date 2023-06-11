@@ -1,7 +1,7 @@
 class LecturerModel {
-  final String id;
-  final String lecturerName;
-  final int facultyId;
+  final String? id;
+  final String? lecturerName;
+  final int? facultyId;
 
   LecturerModel({
     required this.id,

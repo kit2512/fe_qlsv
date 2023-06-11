@@ -45,6 +45,8 @@ Future<void> initDependencies() async {
 
   Get.put<SubjectRepository>(SubjectRepository(), permanent: true);
 
+  Get.put<LecturerRepository>(LecturerRepository(), permanent: true);
+
   AdaptiveLayout.setBreakpoints(
     mediumScreenMinWidth: MediaQueryBreakpoints.small,
     largeScreenMinWidth: MediaQueryBreakpoints.medium,

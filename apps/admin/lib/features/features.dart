@@ -1,0 +1,14 @@
+export 'faculties/faculties.dart';
+export 'edit_faculty/edit_faculty.dart';
+export 'edit_subject/edit_subject.dart';
+export 'create_faculty/create_faculty.dart';
+export 'create_subject/create_subject.dart';
+export 'lecturers/lecturers.dart';
+export 'subject_class_details/subject_class_details.dart';
+export 'subject_details/subject_details.dart';
+export 'subjects/subjects.dart';
+export 'login/login.dart';
+export 'students/students.dart';
+export 'add_student/add_students.dart';
+export 'subject_classes/subject_classes.dart';
+export 'edit_lecturer/edit_lecturer.dart';

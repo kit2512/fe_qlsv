@@ -104,7 +104,7 @@ class SubjectRepository extends BaseRepository {
     }
   }
 
-  Future<Either<Failure, SubjectModel>> getSubject(String subjectId) async {
+  Future<Either<Failure, SubjectModel>> getSubjectDetails(String subjectId) async {
     try {
       final response = await restfulModule.get(
         Endpoints.subject,

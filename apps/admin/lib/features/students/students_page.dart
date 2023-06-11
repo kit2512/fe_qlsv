@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared/shared.dart';
 
-import 'presentation/controllers/students_controller.dart';
+import 'students_controller.dart';
 
 class StudentPage extends GetView<StudentsController> {
   const StudentPage({super.key});

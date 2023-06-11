@@ -17,7 +17,7 @@ class SubjectDetailsController extends GetxController {
 
   void getSubjectDetails(String id) async {
     _loadingController.startLoading();
-    final res = await _subjectRepository.getSubject(id);
+    final res = await _subjectRepository.getSubjectDetails(id);
     res.fold((l) {
       return Get.showSnackbar(GetSnackBar(
         title: "Error",
