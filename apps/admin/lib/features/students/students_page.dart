@@ -165,36 +165,38 @@ class StudentPage extends GetView<StudentsController> {
         DataCell(Text(student.address)),
         DataCell(Text(student.nation)),
         DataCell(Text(student.religion)),
-        DataCell(ElevatedButton.icon(
+        DataCell(
+          ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.error,
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
             ),
             onPressed: () {
-              Get.dialog(
-                AlertDialog(
-                  title: Text("Delete student"),
-                  content: Text(
-                      "Are you sure you want to delete ${student.firstName} ${student.lastName}?"),
-                  actions: [
-                    TextButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      child: Text("Cancel"),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Get.back();
-                        controller.deleteStudent(student.studentCode);
-                      },
-                      child: Text("Delete"),
-                    ),
-                  ],
+              Get.dialog(AlertDialog(
+                title: Text("Delete student"),
+                content: Text(
+                    "Are you sure you want to delete ${student.firstName} ${student.lastName}?"),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    child: Text("Cancel"),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Get.back();
+                      controller.deleteStudent(student.studentCode);
+                    },
+                    child: Text("Delete"),
+                  ),
+                ],
               ));
             },
             icon: const Icon(Icons.delete),
-            label: const Text("Delete")))
+            label: const Text("Delete"),
+          ),
+        ),
       ],
     );
   }

@@ -102,6 +102,29 @@ class FacultyDetailsController extends GetxController
     }, (r) {
       listLecturer.assignAll(r);
     });
+  }
 
+  void deleteLecture(String id) async {
+    _loadingController.startLoading();
+    final res = await _lecturerRepository.deleteLecturer(id);
+    res.fold(
+          (l) => Get.showSnackbar(
+        GetSnackBar(
+          title: "Error",
+          message: "Unable to delete lecturer ${l.errorCode}, ${l.message}",
+          duration: const Duration(seconds: 3),
+        ),
+      ),
+          (r) {
+        Get.showSnackbar(
+          const GetSnackBar(
+            title: "Success",
+            message: "Lecturer deleted successfully",
+          ),
+        );
+        getData();
+      },
+    );
+    _loadingController.endLoading();
   }
 }

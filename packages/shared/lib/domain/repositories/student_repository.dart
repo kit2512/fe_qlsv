@@ -158,4 +158,5 @@ class StudentRepository extends BaseRepository {
       return Left(SystemFailure(message: e.message, errorCode: e.response?.statusCode.toString()));
     }
   }
+
 }

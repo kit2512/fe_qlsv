@@ -11,6 +11,8 @@ class Endpoints {
   static final String users = "${baseUrl}users";
 
   static final String lecturer = "${baseUrl}lecturer";
+
+  static String get subjectClasses => "${baseUrl}subjectClass/all";
   static String lecturerDetails(String id) => "${baseUrl}lecturer/$id";
   static String userDetails(String uid) => "${baseUrl}users/$uid";
   static final String changeRole = "${baseUrl}users/change_role";
@@ -40,4 +42,6 @@ class Endpoints {
   // student
   static final String student = "${baseUrl}student";
   static final String allStudents = "${baseUrl}student/all";
+
+  static String subjectClassDetails(String id) => "${baseUrl}subjectClass/$id";
 }
