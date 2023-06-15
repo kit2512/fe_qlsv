@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63f6ea35-640b-4f21-b234-b240b5b18bcf" name="Changes" comment="UPDATE">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/features/facculty_details/facluty_details_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/features/facculty_details/facluty_details_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/features/facculty_details/faculty_details_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/features/facculty_details/faculty_details_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/features/students/students_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/features/students/students_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/features/subject_classes/subject_classes_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/features/subject_classes/subject_classes_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/admin/lib/features/subject_classes/subject_classes_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/features/subject_classes/subject_classes_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/constants/endpoints.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/constants/endpoints.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/domain/repositories/class_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/domain/repositories/class_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/shared/lib/domain/repositories/student_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/packages/shared/lib/domain/repositories/student_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/admin/lib/features/add_student/presentation/add_student_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/apps/admin/lib/features/add_student/presentation/add_student_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

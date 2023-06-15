@@ -95,14 +95,14 @@ class AddStudentPage extends GetView<AddStudentController> {
               },
             ),
             const Text(
-              "Male",
+              "Femal",
               style: TextStyle(fontSize: 16.0),
             ),
             Radio<UserGender>(
               value: UserGender.male,
               groupValue: controller.gender.value,
               onChanged: (val) {
-                controller.gender.value = val ?? UserGender.female;
+                controller.gender.value = val ?? UserGender.male;
               },
             ),
             const Text(
