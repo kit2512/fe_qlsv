@@ -3,8 +3,6 @@ import 'package:admin/routes/go_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shared/components/app_theme.dart';
-import 'package:shared/components/common_content_page.dart';
 import 'package:shared/shared.dart';
 
 import 'lecturers_controller.dart';

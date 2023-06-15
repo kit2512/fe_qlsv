@@ -47,7 +47,7 @@ class UserModel {
       email: json["email"],
       phoneNumber: json["phone_number"],
       address: json["address"],
-      dateOfBirth: DateFormat("yyyy-MM-DD").parse(json["date_of_birth"]),
+      dateOfBirth: DateFormat("yyyy-MM-DD").parse(json["date_of_birth"].replaceAll("/", "-")),
       citizenId: json["citizen_id"],
       nation: json["nation"],
       religion: json["religion"],

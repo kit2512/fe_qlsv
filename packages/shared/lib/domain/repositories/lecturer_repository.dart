@@ -116,4 +116,28 @@ class LecturerRepository extends BaseRepository {
       );
     }
   }
+
+  Future<Either<Failure, List<LecturerModel>>> getFacultyLecturers({required int id}) async {
+    try {
+      final response = await restfulModule.get(
+        Endpoints.facultyLecturers(id),
+      );
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body) as List;
+        return Right(data
+            .map((e) => LecturerModel.fromJson(e as Map<String, dynamic>))
+            .toList());
+      } else {
+        return Left(SystemFailure(
+          errorCode: response.statusCode.toString(),
+          message: jsonDecode(response.body)['msg'],
+        ));
+      }
+    } catch (e) {
+      return Left(SystemFailure(
+        errorCode: '500',
+        message: e.toString(),
+      ));
+    }
+  }
 }

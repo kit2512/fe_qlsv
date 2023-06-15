@@ -95,4 +95,26 @@ class MajorRepository extends BaseRepository {
       ));
     }
   }
+
+  Future<Either<Failure, List<MajorModel>>> getFacultyMajors({required int id}) async {
+    try {
+      final response = await restfulModule.get(Endpoints.facultyMajors(id));
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body) as List;
+        return Right(data
+            .map((e) => MajorModel.fromJson(e as Map<String, dynamic>))
+            .toList());
+      } else {
+        return Left(SystemFailure(
+          errorCode: response.statusCode.toString(),
+          message: jsonDecode(response.body)['msg'],
+        ));
+      }
+    } catch (e) {
+      return Left(SystemFailure(
+        errorCode: '500',
+        message: e.toString(),
+      ));
+    }
+  }
 }

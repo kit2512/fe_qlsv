@@ -51,7 +51,7 @@ class UserService extends GetxService {
 
   Future<bool> logout() async {
     try {
-      document.cookie = "";
+      document.cookie = "token=" ";domain=fe-qlsv.web.app";
       _localStorageModule.clear();
       user.value = null;
       late final String url;

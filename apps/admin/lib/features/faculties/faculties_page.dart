@@ -48,6 +48,15 @@ class FacultiesPage extends GetView<FacultiesController> {
                                       IconButton(
                                         onPressed: () {
                                           context.goNamed(
+                                            GoRoutes.facultyDetails,
+                                            pathParameters: {"id": faculty.id.toString()},
+                                          );
+                                        },
+                                        icon: const Icon(Icons.info),
+                                      ),
+                                      IconButton(
+                                        onPressed: () {
+                                          context.goNamed(
                                             GoRoutes.editFaculty,
                                             pathParameters: {"id": faculty.id.toString()},
                                           );

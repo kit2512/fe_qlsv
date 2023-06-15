@@ -143,4 +143,19 @@ class StudentRepository extends BaseRepository {
       return Left(SystemFailure(message: e.message, errorCode: e.response?.statusCode.toString()));
     }
   }
+
+  Future<Either<Failure, List<StudentModel>>> getFacultyStudents({required int id}) async {
+    try {
+      final response = await restfulModule.get(Endpoints.facultyStudents(id));
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body) as List;
+        return Right(data.map((e) => StudentModel.fromJson(e)).toList());
+      } else {
+        final body = jsonDecode(response.body);
+        return Left(SystemFailure(message: body["msg"], errorCode: response.statusCode.toString()));
+      }
+    } on DioException catch (e) {
+      return Left(SystemFailure(message: e.message, errorCode: e.response?.statusCode.toString()));
+    }
+  }
 }

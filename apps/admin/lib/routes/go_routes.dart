@@ -1,3 +1,5 @@
+import 'package:admin/features/facculty_details/bindings.dart';
+import 'package:admin/features/facculty_details/facluty_details_page.dart';
 import 'package:admin/features/features.dart';
 import 'package:admin/middleware/auth_middleware.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +8,8 @@ import 'package:go_router/go_router.dart';
 import 'package:shared/shared.dart';
 
 class GoRoutes {
+  static String get facultyDetails => "/faculties/:id";
+
   static String get createLecturer => "/lecturers/create";
 
   static String get editFaculty => "/faculties/edit/:id";
@@ -235,6 +239,12 @@ class GoRoutes {
             path: editLecturer,
             bindings: EditLecturerBindings(),
             page: const EditLecturePage(),
+            routes: [],
+          ),
+          commonRoute(
+            path: facultyDetails,
+            bindings: FacultyDetailsBindings(),
+            page: const FacultyDetailsPage(),
             routes: [],
           ),
         ],

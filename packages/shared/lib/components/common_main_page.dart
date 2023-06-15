@@ -35,7 +35,7 @@ class CommonMainPage extends GetView<LoadingController> {
   });
 
   Widget buildContent() {
-    return Container(
+    return Padding(
       padding: const EdgeInsets.all(16.0),
       child: content,
     );

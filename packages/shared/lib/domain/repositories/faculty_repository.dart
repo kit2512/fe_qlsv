@@ -118,4 +118,6 @@ class FacultyRepository extends BaseRepository {
       ));
     }
   }
+
+
 }

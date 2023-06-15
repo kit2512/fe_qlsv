@@ -28,9 +28,17 @@ class _CommonContentPageState extends State<CommonContentPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: widget.content,
-      floatingActionButton: widget.floatingActionButton,
+    return Stack(
+      children: [
+        widget.content,
+        if (widget.floatingActionButton != null ) Positioned(
+          bottom: 16.0,
+          right: 16.0,
+          height: 60.0,
+          width: 60.0,
+          child: widget.floatingActionButton!,
+        )
+      ],
     );
   }
 }
