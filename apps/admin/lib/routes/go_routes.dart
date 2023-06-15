@@ -112,12 +112,6 @@ class GoRoutes {
                 queryParameters: {},
               ),
               NavigationItem(
-                route: profile,
-                iconData: Icons.person,
-                label: "Profile",
-                queryParameters: {},
-              ),
-              NavigationItem(
                   route: faculties,
                   iconData: Icons.departure_board_rounded,
                   label: "Faculties"),
@@ -156,13 +150,7 @@ class GoRoutes {
             page: const StudentPage(),
             routes: [],
           ),
-          commonRoute(
-            useMiddleWare: true,
-            path: profile,
-            bindings: ProfileBindings(),
-            page: const ProfilePage(),
-            routes: [],
-          ),
+
           commonRoute(
             useMiddleWare: true,
             path: addStudent,
@@ -275,23 +263,5 @@ class HomePage extends StatelessWidget {
     return const Center(
       child: Text("Home page"),
     );
-  }
-}
-
-class ProfileBindings extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => ProfileController(), fenix: true);
-  }
-}
-
-class ProfileController extends GetxController {}
-
-class ProfilePage extends GetView<ProfilePage> {
-  const ProfilePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Text("Profile page");
   }
 }
